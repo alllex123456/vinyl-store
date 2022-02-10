@@ -1,0 +1,25 @@
+header {
+  background: url(../../assets/primary\ img/body_bk_resized.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 20vh;
+}
+
+.SectionHeader {
+  display: flex;
+  justify-content: space-between;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+.primary-header {
+  font-size: 4rem;
+}
+
+.header-span-1 {
+  color: #fff;
+}
+.header-span-2 {
+  color: #fff;
+}

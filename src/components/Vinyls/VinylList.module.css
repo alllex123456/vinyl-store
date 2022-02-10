@@ -1,0 +1,13 @@
+.SectionList {
+  color: #000;
+  font-size: 2rem;
+  min-height: 50rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(20rem, 1fr));
+  grid-gap: 3rem;
+}
+
+.card {
+  margin: 5rem auto;
+}

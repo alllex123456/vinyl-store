@@ -1,0 +1,70 @@
+.product-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.qty-buttons {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.418);
+  padding: 1.5rem 2rem;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.qty-buttons:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.product-container:not(:last-child) {
+  border-bottom: 1px solid #000;
+  margin-bottom: 2rem;
+}
+
+.product-name {
+  font-size: 2rem;
+}
+
+.product-price {
+  font-size: 1.6rem;
+}
+
+.product-qty {
+  font-size: 1.4rem;
+  background-color: #999;
+  color: #fff;
+  font-weight: 700;
+  display: inline-block;
+  padding: 1rem 1.4rem;
+  border-radius: 5px;
+  margin: 1rem 0;
+}
+
+.actions {
+  margin-top: 4rem;
+  text-align: right;
+}
+
+.order {
+  font: inherit;
+  font-size: 1.6rem;
+  padding: 1.2rem 3rem;
+  background: rgb(179, 20, 20);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel {
+  margin-right: 2rem;
+}
+
+.cancel:hover {
+  border-bottom: 2px solid rgb(179, 20, 20);
+}
+
+.order:hover {
+  border-bottom: 2px solid #000;
+}

@@ -10,6 +10,15 @@ export default function Item(props) {
     currency: 'USD',
   });
 
+  const addItemHandler = () => {
+    cartCtx.addItem({
+      id: props.id,
+      qty: 1,
+      name: props.title,
+      price: price,
+    });
+  };
+
   return (
     <div className={classes.item}>
       <div className={classes['item-picture']}>
@@ -22,7 +31,7 @@ export default function Item(props) {
       <div className={classes['item-price']}>{price}</div>
       <div className={classes.actions}>
         <button className={classes.button}>See more</button>
-        <button className={classes.button} onAddToCart={cartCtx.addItem}>
+        <button className={classes.button} onClick={addItemHandler}>
           Add to cart
         </button>
       </div>

@@ -39,6 +39,7 @@ export default function VinlyList(props) {
           {items.map((item) => (
             <Item
               key={item.id}
+              id={item.id}
               title={item.title}
               genre={item.genre}
               price={item.price}

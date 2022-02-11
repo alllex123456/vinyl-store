@@ -2,10 +2,9 @@ import React from 'react';
 
 import classes from './Header.module.css';
 
-import Button from '../UI/Button';
 import CartButton from '../UI/CartButton';
 
-export default function Header() {
+export default function Header(props) {
   return (
     <header>
       <section className={classes.SectionHeader}>
@@ -13,8 +12,7 @@ export default function Header() {
           <span className={classes['header-span-1']}>Vinyl</span>
           <span className={classes['header-span-2']}>Store</span>
         </h1>
-        <CartButton />
-        {/* <Button>Contact us</Button> */}
+        <CartButton onShowCart={props.onShowCart} />
       </section>
     </header>
   );

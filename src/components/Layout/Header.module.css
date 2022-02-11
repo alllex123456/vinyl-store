@@ -1,5 +1,10 @@
 header {
-  background: url(../../assets/primary\ img/body_bk_resized.webp);
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.082),
+      rgba(0, 0, 0, 0.911)
+    ),
+    url(../../assets/primary\ img/body_bk_resized.webp);
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 20vh;
@@ -10,7 +15,7 @@ header {
   justify-content: space-between;
   max-width: 120rem;
   margin: 0 auto;
-  padding-top: 1rem;
+  padding-top: 3rem;
 }
 
 .primary-header {

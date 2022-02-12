@@ -1,12 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import classes from './Cart.module.css';
 
 import Modal from '../UI/Modal';
 import Button from '../UI/Button';
 import CartContext from '../../store/cart-context';
+import CartForm from './CartForm';
 
 export default function Cart(props) {
+  const [showForm, setShowForm] = useState(false);
+
   const cartCtx = useContext(CartContext);
+
+  const submitOrderHandler = () => {
+    setShowForm(true);
+  };
 
   return (
     <Modal onHideCart={props.onHideCart}>
@@ -19,18 +26,37 @@ export default function Cart(props) {
               <p className={classes['product-qty']}>{item.qty}</p>
             </div>
             <div>
-              <button className={classes['qty-buttons']}>-</button>
-              <button className={classes['qty-buttons']}>+</button>
+              <button
+                className={classes['qty-buttons']}
+                onClick={() => {
+                  cartCtx.removeItem(item.id);
+                }}
+              >
+                -
+              </button>
+              <button
+                className={classes['qty-buttons']}
+                onClick={() => {
+                  cartCtx.addItem({ ...item, qty: 1 });
+                }}
+              >
+                +
+              </button>
             </div>
           </div>
         ))}
       </div>
-      <div className={classes.actions}>
-        <Button className={classes.cancel} onHideCart={props.onHideCart}>
-          Cancel
-        </Button>
-        <button className={classes.order}>Send order</button>
-      </div>
+      {showForm && <CartForm onShowForm={setShowForm} />}
+      {!showForm && (
+        <div className={classes.actions}>
+          <Button className={classes.cancel} onHideCart={props.onHideCart}>
+            Cancel
+          </Button>
+          <button className={classes.order} onClick={submitOrderHandler}>
+            Order
+          </button>
+        </div>
+      )}
     </Modal>
   );
 }

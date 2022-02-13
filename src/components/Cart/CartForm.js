@@ -35,6 +35,7 @@ export default function CartForm(props) {
       );
 
       props.onSubmitted(true);
+      cartCtx.clearCart();
     } else {
       setFormIsValid(false);
     }

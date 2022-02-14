@@ -5,7 +5,7 @@ export default function Footer(props) {
   return (
     <footer>
       <section className={classes.SectionFooter}>
-        &copy; {new Date().getFullYear()} The Vinly Store
+        &copy; {new Date().getFullYear()} The Vinyl Store
       </section>
     </footer>
   );

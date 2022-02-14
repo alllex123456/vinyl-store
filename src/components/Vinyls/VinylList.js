@@ -6,6 +6,7 @@ import Item from './Item';
 
 export default function VinlyList(props) {
   const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -24,10 +25,11 @@ export default function VinlyList(props) {
           description: data[key].description,
           longDescription: data[key].longDescription,
           price: data[key].price,
-          tracklist: data[key].tracklist,
+          trackList: data[key].trackList,
         });
       }
       setItems(fetchedItems);
+      setIsLoading(false);
     };
     fetchItems();
   }, []);
@@ -35,23 +37,27 @@ export default function VinlyList(props) {
   return (
     <main>
       <Card>
-        <section className={classes.SectionList}>
-          {items.map((item) => (
-            <Item
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              genre={item.genre}
-              price={item.price}
-              description={item.description}
-              longDescription={item.longDescription}
-              trackList={item.trackList}
-              picture={item.picture}
-              band={item.band}
-            />
-          ))}
-        </section>
+        {isLoading && <p className={classes.isLoading}>Please wait...</p>}
+        {!isLoading && (
+          <section className={classes.SectionList}>
+            {items.map((item) => (
+              <Item
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                genre={item.genre}
+                price={item.price}
+                description={item.description}
+                longDescription={item.longDescription}
+                trackList={item.trackList}
+                picture={item.picture}
+                band={item.band}
+              />
+            ))}
+          </section>
+        )}
       </Card>
+      )
     </main>
   );
 }

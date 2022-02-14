@@ -12,6 +12,8 @@ export default function Cart(props) {
 
   const cartCtx = useContext(CartContext);
 
+  const cartEmpty = cartCtx.items.length === 0;
+
   const submitOrderHandler = () => {
     setShowForm(true);
   };
@@ -20,6 +22,9 @@ export default function Cart(props) {
 
   return (
     <Modal onHideCart={props.onHideCart}>
+      {cartEmpty && (
+        <p className={classes.cartEmpty}>You have no items in the cart yet.</p>
+      )}
       {!isSubmitted && (
         <div className={classes.content}>
           {cartCtx.items.map((item) => (
@@ -67,9 +72,15 @@ export default function Cart(props) {
           <Button className={classes.cancel} onHideCart={props.onHideCart}>
             Cancel
           </Button>
-          <button className={classes.order} onClick={submitOrderHandler}>
-            Order
-          </button>
+
+          {!cartEmpty && (
+            <React.Fragment>
+              <button className={classes.order} onClick={submitOrderHandler}>
+                Order
+              </button>
+              <button onClick={() => cartCtx.clearCart()}>Clear Cart</button>
+            </React.Fragment>
+          )}
         </div>
       )}
     </Modal>

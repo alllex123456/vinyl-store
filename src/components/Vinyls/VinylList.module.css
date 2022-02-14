@@ -8,6 +8,11 @@
   grid-gap: 3rem;
 }
 
+.isLoading {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
 main {
   margin: 5rem auto;
 }
